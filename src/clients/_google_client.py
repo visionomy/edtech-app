@@ -23,18 +23,20 @@ class QuestionAndRubric(TypedDict):
 
 class GoogleClient(ClientBase):
 
-    def __init__(self):
+    def __init__(self, 
+                 model_name='gemini-2.5-flash-lite',  # 20 RPD
+                #  model_name="gemini-2.5-flash",
+                #  model_name="gemma-3-4b-it",  # 14.4k RPD; no JSON :(
+                #  model_name="gemini-2.5-flash",
+        ):
+        super().__init__(model_name)
+        
         self._client = genai.Client(api_key=os.environ.get("GOOGLE_API_KEY"))
-
-        self._model_name = 'gemini-2.5-flash-lite',  # 20 RPD
-        self._model_name = "gemini-2.5-flash",
-        self._model_name = "gemma-3-4b-it",  # 14.4k RPD; no JSON :(
-        self._model_name = "gemini-2.5-flash",
 
     def __del__(self):
         self._client.close()
 
-    def request(self, content):
+    def request(self, content, temperature=None, output_schema=None):
         response = self._client.models.generate_content(
             model=self._model_name,
 

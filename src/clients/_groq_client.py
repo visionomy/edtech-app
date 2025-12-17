@@ -48,15 +48,20 @@ question_schema = {
     },
 }
 
+schemas = {
+    "question": {"type": "json_schema", "json_schema": question_schema},
+}
 
 class GroqClient(ClientBase):
 
-    def __init__(self):
+    def __init__(self, model_name="openai/gpt-oss-20b"):
+        super().__init__(model_name)
+        
         self._client = Groq(
             api_key=os.environ.get("GROQ_API_KEY"),
         )
 
-    def request(self, content, temperature=None):
+    def request(self, content, temperature=None, output_schema=None):
         chat_completion = self._client.chat.completions.create(
             messages=[
                 {
@@ -70,9 +75,15 @@ class GroqClient(ClientBase):
 
             # model="llama-3.3-70b-versatile",
             # model="llama-3.1-8b-instant",
-            model="openai/gpt-oss-20b", response_format={"type": "json_schema", "json_schema": question_schema},
+            model=self._model_name, response_format=schemas.get(output_schema),
 
             temperature=temperature,
         )
 
-        return json.loads(chat_completion.choices[0].message.content)
+        result = chat_completion.choices[0].message.content
+
+        if schemas.get(output_schema) is not None:
+            result = json.loads(result)
+        
+        return result
+    
