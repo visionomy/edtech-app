@@ -3,6 +3,7 @@ from pydantic import BaseModel, Field
 from typing import List
 import json
 
+from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
 from clients import _groq_client
@@ -18,6 +19,20 @@ app = FastAPI(
     title="Assessment Grading API",
     description="AI-powered assessment grading system",
     version="1.0.0"
+)
+
+
+# Add CORS - allow Streamlit to call API
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:8501",  # Local Streamlit
+        "https://visionomy-edtech-app.streamlit.app",  # Deployed Streamlit
+        # "*"  # Or allow all for demo (less secure)
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 
