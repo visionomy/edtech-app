@@ -3,21 +3,13 @@ import json
 from dotenv import load_dotenv
 
 from clients import _groq_client
+from prompts import prompt_to_answer
 
 load_dotenv()
 
 
 with open("../data/questions.json", "rt") as fid:
     questions = json.load(fid)
-
-
-def _answer_prompt(age, topic, the_question):
-
-    return \
-f"""You are a {age} year old student. Answer the following question on {topic} in 100-200 words.
-        
-Question: {the_question}
-"""
 
 client = _groq_client.GroqClient(model_name="llama-3.1-8b-instant")
 
@@ -28,7 +20,7 @@ for question in questions:
         result = {
             "question": question["question"],
             "answer": client.request(
-                _answer_prompt(age, question["topic"], question["question"]),
+                prompt_to_answer(question["question"], question["topic"], age),
                 temperature=1.5,
                 output_schema="answer",
             ),

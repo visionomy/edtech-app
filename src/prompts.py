@@ -1,3 +1,16 @@
+def prompt_to_generate_question_on(subject, topic):
+    return \
+f"""You are an expert assessor whose subject is {subject}. Give me an example exam question on the topic of {topic} suitable, complete with a corresponding rubric for assessment, for a 6th Grade student that can be answered in 100-200 words.""",
+
+
+def prompt_to_answer(question, topic, age):
+    return \
+f"""You are a {age} year old student. Answer the following question on {topic} in 100-200 words.
+        
+Question: {question}
+"""
+
+
 def prompt_to_grade(answer, question, rubric):
     return \
 f"""You are an expert assessor of 5th Grade students. Given the question

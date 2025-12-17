@@ -3,6 +3,7 @@ import json
 from dotenv import load_dotenv
 
 from clients import _groq_client
+from prompts import prompt_to_generate_question_on
 
 load_dotenv()
 
@@ -29,7 +30,7 @@ with open("../data/questions.json", "wt") as fid:
     for subject, topic in subjects:
         for iq in range(n_questions):
             result = client.request(
-                f"""You are an expert assessor whose subject is {subject}. Give me an example exam question on the topic of {topic} suitable, complete with a corresponding rubric for assessment, for a 6th Grade student that can be answered in 100-200 words.""",
+                prompt_to_generate_question_on(subject, topic),
                 temperature=1.5,
                 output_schema="question",
             )
