@@ -4,6 +4,7 @@ import json
 from dotenv import load_dotenv
 
 from clients import _groq_client
+from prompts import prompt_to_grade
 
 load_dotenv()
 
@@ -23,29 +24,6 @@ except json.JSONDecodeError:
     answers = []
 
 
-def _grading_prompt(question, rubric, answer):
-    return \
-f"""You are an expert assessor of 5th Grade students. Given the question
-
-{question}
-
-and assessment rubric
-
-{rubric}
-
-give me an assessment of the student's answer:
-
-{answer}
-
-Instructions:
-1. Evaluate each criterion carefully
-2. Assign appropriate scores (can use decimals like 2.5)
-3. Provide specific justification for each score
-4. Give constructive feedback highlighting strengths and areas for improvement
-5. Rate your confidence based on answer clarity and rubric applicability
-"""
-
-
 client = _groq_client.GroqClient()
 
 gradings = []
@@ -53,10 +31,13 @@ gradings = []
 with open("../data/gradings.json", "wt") as fid:
     for answer_dict in answers:
         grading_dict = copy.deepcopy(answer_dict)
-
-        grading_dict["rubric"] = qr_dict[answer_dict["question"]]
+        
         grading_dict["grading"] = client.request(
-            _grading_prompt(answer_dict["question"], qr_dict[answer_dict["question"]], answer_dict["answer"]),
+            prompt_to_grade(
+                answer_dict["answer"],
+                answer_dict["question"],
+                qr_dict[answer_dict["question"]]
+            ),
             temperature=1.5,
             output_schema="grading",
         )
