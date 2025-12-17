@@ -1,0 +1,143 @@
+[
+    {
+        "id": "Q001",
+        "subject": "Biology",
+        "topic": "Plant Biology",
+        "question": "Describe the process of photosynthesis in a plant. Include the main inputs and outputs, explain how light energy is used, and briefly describe the role of chlorophyll. Your response should be between 100 and 200 words.",
+        "rubric": [
+            {
+                "criterion": "Content Accuracy",
+                "justification": "Assess whether the student correctly explains the light-dependent and light-independent reactions, inputs (CO\u2082, H\u2082O, light), outputs (glucose, O\u2082) and the role of chlorophyll. Score is awarded based on the accuracy and completeness of information.",
+                "max_score": 40
+            },
+            {
+                "criterion": "Organization and Clarity",
+                "justification": "Evaluate the logical flow, paragraph structure, and clarity of ideas. Points are given for coherent structure that guides the reader through the steps of photosynthesis.",
+                "max_score": 30
+            },
+            {
+                "criterion": "Use of Scientific Terms",
+                "justification": "Check the correct use of key vocabulary such as chloroplast, photosystem, electron transport, ATP, NADPH, Calvin cycle, and stomata. Accuracy and proper context increase the score.",
+                "max_score": 20
+            },
+            {
+                "criterion": "Spelling, Grammar, and Word Count",
+                "justification": "Ensure the answer meets the 100\u2011200 word requirement and contains few or no spelling, punctuation, or grammatical errors.",
+                "max_score": 10
+            }
+        ]
+    },
+    {
+        "id": "Q002",
+        "subject": "Physics",
+        "topic": "Energy",
+        "question": "In our school cafeteria, a big metal kettle is heated over a gas burner. A student pours 500 milliliters (0.5 kg) of cold water (initial temperature 20\u202f\u00b0C) into the kettle, and then heats it until it reaches a final temperature of 100\u202f\u00b0C. Assume no heat loss to the surroundings, and that the specific heat of water is 4.18 J/g\u00b7K.\n\n(a) How many joules of heat were supplied to the water? (Provide the calculation and the final numeric value.)\n\n(b) Briefly explain why the kettle must be heated to a temperature higher than the water\u2019s boiling point for the kettle\u2019s heating element to be effective, but the water doesn\u2019t boil if it is mixed with something that evaporates at a lower temperature.\n\nAnswer each part in concise, complete sentences within a total of 100\u2011200 words.",
+        "rubric": [
+            {
+                "criterion": "Correct calculation of heat energy",
+                "justification": "Demonstrates ability to set up Q=mc\u0394T and plug in appropriate units",
+                "max_score": 4
+            },
+            {
+                "criterion": "Accurate numerical answer",
+                "justification": "Shows correct rounding and final figure with units",
+                "max_score": 4
+            },
+            {
+                "criterion": "Clear explanation in (b)",
+                "justification": "Displays understanding of thermal conduction and evaporation processes",
+                "max_score": 5
+            },
+            {
+                "criterion": "Answer within word limit and proper language",
+                "justification": "Shows ability to communicate effectively in physics context",
+                "max_score": 3
+            }
+        ]
+    },
+    {
+        "id": "Q003",
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "subject": "literature",
+        "topic": "poetry",
+        "question": "Describe in 100\u2013200 words how the poet in the poem \"The Road Not Taken\" by Robert Frost uses the setting of a forest to convey the theme of choices. Include at least two specific literary techniques used in the poem.",
+        "rubric": [
+            {
+                "criterion": "Understanding of theme",
+                "justification": "Shows clear identification and analysis of how the setting supports the theme of choices",
+                "max_score": 4
+            },
+            {
+                "criterion": "Use of specific literary techniques",
+                "justification": "Cites and explains at least two techniques (e.g., symbolism, imagery) used in the poem",
+                "max_score": 4
+            },
+            {
+                "criterion": "Clarity & Organization",
+                "justification": "Responds coherently within word limit and uses appropriate structure",
+                "max_score": 4
+            },
+            {
+                "criterion": "Creativity & Insight",
+                "justification": "Shows original thought in interpreting the setting's effect",
+                "max_score": 4
+            }
+        ]
+    },
+    {
+        "id": "Q004",
+        "subject": "History",
+        "topic": "The Romans",
+        "question": "Write a paragraph (100-200 words) describing the daily life of a typical Roman family during the 2nd century AD. Discuss their homes, food, family roles, and typical leisure activities.",
+        "rubric": [
+            {
+                "criterion": "Historical Accuracy",
+                "justification": "Answer contains correct facts about Roman life.",
+                "max_score": 4
+            },
+            {
+                "criterion": "Coverage of Prompt Elements",
+                "justification": "Response addresses home life, food, family roles, and leisure.",
+                "max_score": 3
+            },
+            {
+                "criterion": "Word Count Adherence",
+                "justification": "Answer is within 100-200 words.",
+                "max_score": 2
+            },
+            {
+                "criterion": "Clarity and Organization",
+                "justification": "Information is clear, well-structured, and flows logically.",
+                "max_score": 3
+            }
+        ]
+    },
+    {
+        "id": "Q005",
+        "subject": "Geography",
+        "topic": "Weather",
+        "question": "Explain how the pressure system in the Arctic causes the cold season, and how it changes in summer. Your answer should include at least three main points and be between 100-200 words.",
+        "rubric": [
+            {
+                "criterion": "Clarity of Explanation",
+                "justification": "Student clearly articulates cause-effect relationships of Arctic pressure systems across seasons.",
+                "max_score": 10
+            },
+            {
+                "criterion": "Inclusion of Key Points",
+                "justification": "Student includes at least three distinct and relevant points.",
+                "max_score": 10
+            },
+            {
+                "criterion": "Word Count Accuracy",
+                "justification": "Answer falls within the specified 100-200 word range.",
+                "max_score": 5
+            },
+            {
+                "criterion": "Use of Geographic Terms",
+                "justification": "Student appropriately uses terms such as 'polar high', 'subpolar', 'convection' etc.",
+                "max_score": 5
+            }
+        ]
+    }
+]
