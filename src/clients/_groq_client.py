@@ -48,15 +48,48 @@ question_schema = {
     },
 }
 
+
+score_by_criterion_schema = {
+    "type": "object",
+    "properties": {
+        "criterion": {
+            "type": "string",
+        },
+        "assigned_score": {
+            "type": "integer",
+        },
+        "justification": {
+            "type": "string",
+        },
+    },
+}
+
+
+grading_schema = {
+    "description": "Schema that describes a grading of an exam question answer given the question's assessment rubric",
+    "name": "grading-schema",
+    "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+            "scores_by_criteria": {
+                "type": "array",
+                "items": score_by_criterion_schema,
+            },
+        },
+    },
+}
+
 schemas = {
     "question": {"type": "json_schema", "json_schema": question_schema},
+    "grading": {"type": "json_schema", "json_schema": grading_schema},
 }
 
 class GroqClient(ClientBase):
 
     def __init__(self, model_name="openai/gpt-oss-20b"):
         super().__init__(model_name)
-        
+
         self._client = Groq(
             api_key=os.environ.get("GROQ_API_KEY"),
         )
